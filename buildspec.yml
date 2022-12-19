@@ -3,9 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-       - make install
+      - make install
   build:
     commands:
-       - make lint
-       - make test
-       - make format
+      - make lint
+      - make test
+      - make format
