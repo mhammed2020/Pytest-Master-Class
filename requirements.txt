@@ -4,3 +4,4 @@ pylint==2.15.8
 nbval==0.9.6
 ipython==7.34.0
 black
+ipdb==0.13.11
