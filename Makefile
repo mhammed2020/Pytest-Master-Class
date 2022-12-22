@@ -5,7 +5,7 @@ install:
 test:
 	# python -m pytest -vv --cov=hello  test_hello.py
 	# python -m pytest -vv --cov=hello  tests
-	python -m pytest -vvv --cov=hello --cov=greeting --cov=smath --cov=web tests
+	python -m pytest -vvv --cov=hello --cov=greeting --cov=smath --cov=web --cov=cli tests
 	# python -m pytest -vv tests/test_web.py # if you just want to test web 
 	python -m pytest --nbval notebook.ipynb
 
