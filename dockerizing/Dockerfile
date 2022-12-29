@@ -1,20 +1,15 @@
+
 FROM ubuntu:20.04 
 
+# Install nginx
 RUN \
-    apt update &&\
-    apt install -y net-tools &&\ 
-    apt install -y curl &&\ 
-    apt install -y nginx &&\ 
-    echo "\ndaemon off;" >> /etc/nginx/nginx.conf &&\ 
-    chown -R www-data:www-data /var/lib/nginx 
+    apt-get update &&\
+    apt-get install -y net-tools &&\ 
+    apt-get install -y iputils-ping &&\ 
+    apt install -y curl && 
 
-COPY index.html /var/www/html
+# Define working directory
 
-WORKDIR /etc/nginx
-
-
-# Expose ports 
-EXPOSE 80
-EXPOSE 443
-
-CMD ["nginx"]
+WORKDIR /etc
+# Define default command
+CMD ["bash"]
