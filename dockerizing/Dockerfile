@@ -1,18 +1,20 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 
 
-# Install Nginx
-RUN apt update 
+RUN \
+    apt update &&\
+    apt install -y net-tools &&\ 
+    apt install -y curl &&\ 
+    apt install -y nginx &&\ 
+    echo "\ndaemon off;" >> /etc/nginx/nginx.conf &&\ 
+    chown -R www-data:www-data /var/lib/nginx 
 
-# Create a directory 
-RUN mkdir -p /tmp/scripts
+COPY index.html /var/www/html
 
-# COPY
-COPY magic.sh /tmp/scripts 
+WORKDIR /etc/nginx
 
-# Define workind directory 
 
-WORKDIR /tmp/scripts
+# Expose ports 
+EXPOSE 80
+EXPOSE 443
 
-# Define default command 
- 
-CMD ["bash"]
+CMD ["nginx"]
